@@ -98,6 +98,7 @@ public class LDBCDatagen {
         knowsGenerator.run(hadoopPrefix+"/persons",hadoopPrefix+"/universityEdges");
         long endUniversity = System.currentTimeMillis();
 
+
         printProgress("Creating main interest correlated edges");
         long startInterest= System.currentTimeMillis();
 
@@ -112,6 +113,7 @@ public class LDBCDatagen {
         long endInterest = System.currentTimeMillis();
 
 
+
         printProgress("Creating random correlated edges");
         long startRandom= System.currentTimeMillis();
 
@@ -124,6 +126,7 @@ public class LDBCDatagen {
 
         knowsGenerator.run(hadoopPrefix+"/persons",hadoopPrefix+"/randomEdges");
         long endRandom= System.currentTimeMillis();
+
 
 
 
