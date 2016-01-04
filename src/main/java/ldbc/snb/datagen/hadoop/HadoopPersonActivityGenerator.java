@@ -145,8 +145,8 @@ public class HadoopPersonActivityGenerator {
         /** PROFILING OPTIONS **/
         //job.setProfileEnabled(true);
         //job.setProfileParams("-agentlib:hprof=cpu=samples,heap=sites,depth=4,thread=y,format=b,file=%s");
-        //job.setProfileTaskRange(true,"");
-        //job.setProfileTaskRange(false,"0-"+(numThreads-1));
+        //job.setProfileTaskRange(true,"0-1");
+        //job.setProfileTaskRange(false,"0-1");
         /****/
 
         FileInputFormat.setInputPaths(job, new Path(rankedFileName));
