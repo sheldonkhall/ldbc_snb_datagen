@@ -34,31 +34,35 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package ldbc.snb.datagen.objects;
+package ldbc.snb.datagen.vocabulary;
 
-import ldbc.snb.datagen.dictionary.Dictionaries;
+/**
+ * LDBC social network vocabulary namespace used in the serialization process.
+ */
+public class SNTAG {
 
-public class FlashmobTag implements Comparable<FlashmobTag> {
-    public int level;
-    public long date;
-    public double prob;
-    public int tag;
+    public static final String NAMESPACE = "http://www.ldbc.eu/ldbc_socialnet/1.0/tag/";
+    public static final String PREFIX = "sntag:";
 
-    public int compareTo(FlashmobTag t) {
-        if (this.date - t.date < 0) return -1;
-        if (this.date - t.date > 0) return 1;
-        if (this.date - t.date == 0) return 0;
-        return 0;
+
+    /**
+     * Gets the LDBC social network vocabulary prefix version of the input.
+     */
+    public static String prefixed(String string) {
+        return PREFIX + string;
     }
 
-    public void copyTo(FlashmobTag t) {
-        t.level = this.level;
-        t.date = this.date;
-        t.prob = this.prob;
-        t.tag = this.tag;
+    /**
+     * Gets the LDBC social network vocabulary URL version of the input.
+     */
+    public static String getUrl(String string) {
+        return NAMESPACE + string;
     }
 
-    public String toString(){
-        return "Level: "+level+" Date: "+Dictionaries.dates.formatDateTime(date)+" Tag:"+ Dictionaries.tags.getName(tag);
+    /**
+     * Gets the LDBC social network vocabulary RDF-URL version of the input.
+     */
+    public static String fullPrefixed(String string) {
+        return "<" + NAMESPACE + string + ">";
     }
 }
