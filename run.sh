@@ -1,6 +1,8 @@
 #!/bin/bash
-DEFAULT_HADOOP_HOME=/home/user/hadoop-2.6.0 #change to your hadoop folder
-DEFAULT_LDBC_SNB_DATAGEN_HOME=/home/user/ldbc_snb_datagen #change to your ldbc_socialnet_dbgen folder
+DEFAULT_HADOOP_HOME=/opt/grakn/hadoop-2.6.0 #change to your hadoop folder
+
+SCRIPTPATH=`cd "$(dirname "$0")" && pwd -P`
+DEFAULT_LDBC_SNB_DATAGEN_HOME=$SCRIPTPATH #change to your ldbc_socialnet_dbgen folder
 
 # allow overriding configuration from outside via environment variables
 # i.e. you can do
@@ -14,6 +16,9 @@ export LDBC_SNB_DATAGEN_HOME
 
 mvn clean
 mvn -DskipTests assembly:assembly 
+
+// hack because osx by default is not case sensitive
+zip -d $LDBC_SNB_DATAGEN_HOME/target/ldbc_snb_datagen-0.2.5-jar-with-dependencies.jar META-INF/LICENSE
 
 $HADOOP_HOME/bin/hadoop jar $LDBC_SNB_DATAGEN_HOME/target/ldbc_snb_datagen-0.2.5-jar-with-dependencies.jar $LDBC_SNB_DATAGEN_HOME/params.ini
 
