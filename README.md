@@ -24,3 +24,14 @@ Publicly available datasets can be found at the LDBC-SNB Amazon Bucket. These da
 **Community provided tools**
 
 * **[Apache Flink Loader:] (https://github.com/s1ck/ldbc-flink-import)** A loader of LDBC datasets for Apache Flink
+
+**Grakn test setup**
+
+In order to run the SNB generator you need these pre-requisites:
+
+* 7zip,
+* Hadoop 2.6.0,
+* Grakn.
+
+Then edit the run.sh script so that the `DEFAULT_HADOOP_HOME` environmental variable points to the hadoop distribution.
+Finally execute the run.sh script to start loading to engine.
