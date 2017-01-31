@@ -35,7 +35,7 @@ mvn -DskipTests assembly:assembly
 export HADOOP_CLIENT_OPTS="-Xmx1024m"
 
 # execute loader
-$HADOOP_HOME/bin/hadoop jar $LDBC_SNB_DATAGEN_HOME/target/ldbc_snb_datagen-0.2.5-jar-with-dependencies.jar $TEMP_PARAM_FILE
+$HADOOP_HOME/bin/hadoop jar $LDBC_SNB_DATAGEN_HOME/target/ldbc_snb_datagen-0.2.5-jar-with-dependencies.jar $LDBC_SNB_DATAGEN_HOME/paramsGrakn.ini
 
 rm -f m*personFactors*
 rm -f .m*personFactors*
